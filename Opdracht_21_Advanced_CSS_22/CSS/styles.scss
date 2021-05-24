@@ -1,0 +1,801 @@
+@import "./fonts";
+@import "./variables";
+
+/*  Mobile First */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html,
+body {
+	background-color: black;
+	font-family: "Montserrat", sans-serif;
+}
+
+.gridcontainer {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 0.25fr;
+	grid-template-rows: 125px auto auto;
+	grid-template-areas: "h h h h" "m m m m" "f f f f";
+}
+
+
+/*  Header */
+
+.header {
+	grid-area: h;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	background-color: #0f0f0f;
+	& h1 {
+		color: white;
+		font-size: 1em;
+		margin-top: 20px;
+		&::after {
+			background-color: $backgroundcolorpurple;
+			content: "NEW";
+			font-size: 0.4em;
+			padding-left: 10px;
+			display: block;
+			height: 10px;
+			width: 30px;
+			position: absolute;
+		}
+	}
+	& nav ul {
+		list-style-type: none;
+		font-size: 0.5em;
+		display: flex;
+		flex-flow: column wrap;
+		padding: 10px;
+		margin-top: 20px;
+		background-color: $backgroundcolorpurple
+	}
+	& nav ul li {
+		padding: 2px;
+		border-left: #68a7da solid 0.5px;
+		border-right: #68a7da solid 0.5px;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 2px;
+	}
+}
+
+.currentPage {
+	color: rgb(31, 30, 30);
+	text-decoration: none;
+	background-color: $backgroundcolorlightgrey;
+	padding: $padding10px;
+}
+
+.about {
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: rgb(31, 30, 30);
+		background-color: $backgroundcolorlightgrey;
+		padding: $padding10px;
+	}
+}
+
+.contact {
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: rgb(31, 30, 30);
+		background-color: $backgroundcolorlightgrey;
+		padding: $padding10px;
+	}
+}
+
+.search {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1em;
+	text-align: center;
+	padding: $padding10px;
+	&:focus {
+		border: #68a7da solid 1px;
+		padding: $padding10px;
+	}
+}
+
+
+/*  Socialbar */
+
+.socialbar {
+	padding: 0px;
+	margin: 0px;
+	position: fixed;
+	right: -119px;
+	top: 150px;
+	width: 180px;
+}
+
+.sticky li {
+	list-style-type: none;
+	height: 60px;
+	padding: 0px;
+	transition: all 0.25s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		margin-left: -170px;
+	}
+}
+
+.fb {
+	background-color: #3b5998;
+}
+
+.tw {
+	background-color: #00aced;
+}
+
+.gh {
+	background-color: #333;
+}
+
+.ld {
+	background-color: #007bb6;
+}
+
+.bg {
+	background-color: #e17b77;
+}
+
+.fa-facebook {
+	padding-top: 12px;
+}
+
+.fa-twitter {
+	padding-top: 12px;
+}
+
+.fa-github {
+	padding-top: 12px;
+}
+
+.fa-linkedin {
+	padding-top: 12px;
+}
+
+.facebook {
+	color: white;
+	font-size: 40px;
+	padding-left: 20px;
+	&:hover {
+		&::after {
+			content: "Like my Facebook page";
+			font-size: 0.32em;
+			padding-left: 20px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	}
+}
+
+.twitter {
+	color: white;
+	font-size: 40px;
+	padding-left: 20px;
+	&:hover {
+		&::after {
+			content: "Follow me on Twitter";
+			font-size: 0.32em;
+			padding-left: 20px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	}
+}
+
+.github {
+	color: white;
+	font-size: 40px;
+	padding-left: 20px;
+	&:hover {
+		&::after {
+			content: "See projects on Github";
+			font-size: 0.32em;
+			padding-left: 20px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	}
+}
+
+.linkedin {
+	color: white;
+	font-size: 40px;
+	padding-left: 20px;
+	&:hover {
+		&::after {
+			content: "Connect on Linkedin";
+			font-size: 0.32em;
+			padding-left: 20px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	}
+}
+
+.blog {
+	color: white;
+	font-size: 40px;
+	padding-left: 14px;
+	&:hover {
+		&::after {
+			content: "Check out my Blogs";
+			color: white;
+			font-size: 0.32em;
+			padding-left: 20px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	}
+}
+
+
+/*  Main */
+
+.main {
+	grid-area: m;
+	background-color: $backgroundcolorlightgrey;
+	@include flexcenter (column wrap, center, center);
+}
+
+
+/*  Card */
+
+.card {
+	margin: 50px 100px 50px 100px;
+	max-width: 200px;
+	box-shadow: $mainshadow;
+	border-radius: 15px;
+}
+
+.cardtop {
+	background-color: white;
+	@include flexcenter (column wrap, center, center);
+	position: relative;
+	height: 200px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	& p {
+		font-family: Montserrat;
+		font-size: 0.6em;
+		text-align: center;
+		padding: 35px 25px 75px 25px;
+	}
+	& img {
+		position: absolute;
+		left: 16%;
+		bottom: -25%;
+		max-width: 80px;
+		border-radius: 50%;
+		border: #fffdfe solid 5px;
+	}
+}
+
+.cardbottom {
+	background-color: $backgroundcolorpurple;
+	height: 125px;
+	@include flexcenter (column wrap, center, center);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	& h1 {
+		font-family: Oswald;
+		font-size: 1em;
+		padding: 50px 0px 5px 0px;
+		color: white;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	& h2 {
+		font-family: Montserrat;
+		color: $backgroundcolorlightgrey;
+		text-align: center;
+		font-size: 0.6em;
+	}
+}
+
+
+/*  Fotogallery */
+
+.fotogallery {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(40, 5vw);
+	grid-gap: 15px;
+	padding: 20px 20px 70px 20px;
+}
+
+.profile {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: $mainshadow;
+	position: relative;
+}
+
+.info {
+	position: absolute;
+	bottom: 5px;
+	right: 20px;
+	left: 25px;
+	background-color: rgb(32, 28, 28);
+	opacity: 75%;
+	color: white;
+	text-align: center;
+	padding: 0px 10px 10px 10px;
+	border-radius: 15px;
+	margin: $margin5px;
+	& h1 {
+		font-size: 1.1em;
+		text-transform: uppercase;
+		padding-top: 5px;
+	}
+	& q {
+		font-size: 0.8em;
+		color: $backgroundcolorlightgrey;
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .8s ease;
+	background-color: $backgroundcolorpurple;
+	border-radius: 10px;
+}
+
+.eric {
+	margin: $margin5px;
+	@include grid(1, 2, 1, 7);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+.wendy {
+	margin: $margin5px;
+	@include grid(1, 2, 7, 14);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+.bas {
+	margin: $margin5px;
+	@include grid(1, 2, 14, 21);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+.susan {
+	margin: $margin5px;
+	@include grid(1, 2, 21, 27);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+.lin {
+	margin: $margin5px;
+	@include grid(1, 2, 27, 35);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+.lisa {
+	margin: $margin5px;
+	@include grid(1, 2, 35, 42);
+	&:hover .overlay {
+		opacity: 1;
+	}
+}
+
+
+/*  Mobile M */
+
+@media screen and (min-width:375px) {
+	.cardtop {
+		background-color: white;
+		@include flexcenter (column wrap, center, center);
+		position: relative;
+		height: 200px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		& p {
+			font-family: Montserrat;
+			font-size: 0.7em;
+			text-align: center;
+			padding: 35px 25px 75px 25px;
+		}
+		& img {
+			position: absolute;
+			left: 22%;
+			bottom: -25%;
+			max-width: 90px;
+			border-radius: 50%;
+			border: #fffdfe solid 5px;
+		}
+	}
+}
+
+
+/*  Mobile L */
+
+@media screen and (min-width:425px) {
+	.cardtop {
+		background-color: white;
+		@include flexcenter (column wrap, center, center);
+		position: relative;
+		height: 200px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		& p {
+			font-family: Montserrat;
+			font-size: 0.75em;
+			text-align: center;
+			padding: 35px 25px 75px 25px;
+		}
+		& img {
+			position: absolute;
+			left: 24%;
+			bottom: -25%;
+			max-width: 95px;
+			border-radius: 50%;
+			border: #fffdfe solid 5px;
+		}
+	}
+}
+
+
+/*  Tablet */
+
+@media screen and (min-width:768px) {
+	/*  Header */
+	.header {
+		grid-area: h;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		background-color: #0f0f0f;
+		& h1 {
+			color: white;
+			font-size: 2.2em;
+			margin-bottom: 20px;
+			&::after {
+				background-color: $backgroundcolorpurple;
+				content: "NEW";
+				font-size: 0.4em;
+				padding-left: 10px;
+				display: block;
+				height: 18px;
+				width: 50px;
+				position: absolute;
+			}
+		}
+		& nav ul {
+			list-style-type: none;
+			font-size: 0.5em;
+			display: flex;
+			flex-flow: column wrap;
+			padding: 20px;
+			margin-bottom: 20px;
+			background-color: $backgroundcolorpurple
+		}
+		& nav ul li {
+			padding: 2px;
+			border-left: #68a7da solid 0.5px;
+			border-right: #68a7da solid 0.5px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+	.currentPage {
+		color: rgb(31, 30, 30);
+		text-decoration: none;
+		background-color: $backgroundcolorlightgrey;
+		padding: $padding10px;
+	}
+	.about {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: rgb(31, 30, 30);
+			background-color: $backgroundcolorlightgrey;
+			padding: $padding10px;
+		}
+	}
+	.contact {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: rgb(31, 30, 30);
+			background-color: $backgroundcolorlightgrey;
+			padding: $padding10px;
+		}
+	}
+	.search {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		text-align: center;
+		padding: $padding10px;
+		&:focus {
+			border: #68a7da solid 1px;
+			padding: $padding10px;
+		}
+	}
+	/*  Card */
+	.card {
+		margin: 50px 250px 50px 250px;
+		max-width: 220px;
+		box-shadow: $mainshadow;
+		border-radius: 15px;
+	}
+	.cardtop {
+		background-color: white;
+		@include flexcenter (column wrap, center, center);
+		position: relative;
+		height: 250px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		& p {
+			font-family: Montserrat;
+			font-size: 0.9em;
+			text-align: center;
+			padding: 35px 35px 80px 35px;
+		}
+		& img {
+			position: absolute;
+			left: 22%;
+			bottom: -25%;
+			max-width: 120px;
+			border-radius: 50%;
+			border: #fffdfe solid 5px;
+		}
+	}
+	.cardbottom {
+		background-color: $backgroundcolorpurple;
+		height: 140px;
+		@include flexcenter (column wrap, center, center);
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		& h1 {
+			font-family: Oswald;
+			font-size: 1.1em;
+			padding: 60px 0px 5px 0px;
+			color: white;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		& h2 {
+			font-family: Montserrat;
+			color: $backgroundcolorlightgrey;
+			font-size: 0.9em;
+		}
+	}
+	/*  Fotogallery */
+	.fotogallery {
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		grid-template-rows: repeat(10, 5vw);
+		grid-gap: 20px;
+		padding: 20px 20px 0px 20px;
+	}
+	.eric {
+		margin: $margin6px;
+		@include grid(1, 6, 1, 4);
+	}
+	.wendy {
+		margin: $margin6px;
+		@include grid(6, 11, 1, 4);
+	}
+	.bas {
+		margin: $margin6px;
+		@include grid(1, 6, 4, 7);
+	}
+	.susan {
+		margin: $margin6px;
+		@include grid(6, 11, 4, 7);
+	}
+	.lin {
+		margin: $margin6px;
+		@include grid(1, 6, 7, 10);
+	}
+	.lisa {
+		margin: $margin6px;
+		@include grid(6, 11, 7, 10);
+	}
+}
+
+
+/*  Desktop */
+
+@media screen and (min-width:1024px) {
+	/*  Header */
+	.header {
+		grid-area: h;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		background-color: #0f0f0f;
+		& h1 {
+			color: white;
+			font-size: 2.5em;
+			margin-bottom: 20px;
+			&::after {
+				background-color: $backgroundcolorpurple;
+				content: "NEW";
+				font-size: 0.4em;
+				padding-left: 10px;
+				display: block;
+				height: 18px;
+				width: 50px;
+				position: absolute;
+			}
+		}
+		& nav ul {
+			list-style-type: none;
+			font-size: 0.5em;
+			display: flex;
+			flex-flow: column wrap;
+			padding: 20px;
+			margin-bottom: 20px;
+			background-color: $backgroundcolorpurple
+		}
+		& nav ul li {
+			padding: 2px;
+			border-left: #68a7da solid 0.5px;
+			border-right: #68a7da solid 0.5px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+	.currentPage {
+		color: rgb(31, 30, 30);
+		text-decoration: none;
+		background-color: $backgroundcolorlightgrey;
+		padding: $padding10px;
+	}
+	.about {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: rgb(31, 30, 30);
+			background-color: $backgroundcolorlightgrey;
+			padding: $padding10px;
+		}
+	}
+	.contact {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: rgb(31, 30, 30);
+			background-color: $backgroundcolorlightgrey;
+			padding: $padding10px;
+		}
+	}
+	.search {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		text-align: center;
+		padding: $padding10px;
+		&:focus {
+			border: #68a7da solid 1px;
+			padding: $padding10px;
+		}
+	}
+	/*  Card */
+	.card {
+		margin: 50px 100px 50px 350px;
+		max-width: 320px;
+		box-shadow: $mainshadow;
+		border-radius: 15px;
+	}
+	.cardtop {
+		background-color: white;
+		@include flexcenter (column wrap, center, center);
+		position: relative;
+		height: 300px;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+		& p {
+			font-family: Montserrat;
+			font-size: 1.2em;
+			text-align: center;
+			padding: 50px 35px 80px 50px;
+		}
+		& img {
+			position: absolute;
+			left: 25%;
+			bottom: -30%;
+			max-width: 150px;
+			border-radius: 50%;
+			border: #fffdfe solid 5px;
+		}
+	}
+	.cardbottom {
+		background-color: $backgroundcolorpurple;
+		height: 180px;
+		@include flexcenter (column wrap, center, center);
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		& h1 {
+			font-family: Oswald;
+			font-size: 1.4em;
+			padding: 90px 0px 5px 0px;
+			color: white;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		& h2 {
+			font-family: Montserrat;
+			color: $backgroundcolorlightgrey;
+			font-size: 1.1em;
+		}
+	}
+	/*  Fotogallery */
+	.fotogallery {
+		display: grid;
+		grid-template-columns: repeat(9, 1fr);
+		grid-template-rows: repeat(6, 5vw);
+		grid-gap: 15px;
+		padding: 20px 20px 25px 20px;
+	}
+	.eric {
+		margin: $margin10px;
+		@include grid(1, 4, 1, 4);
+	}
+	.wendy {
+		margin: $margin10px;
+		@include grid(4, 7, 1, 4);
+	}
+	.bas {
+		margin: $margin10px;
+		@include grid(7, 10, 1, 4);
+	}
+	.susan {
+		margin: $margin10px;
+		@include grid(1, 4, 4, 7);
+	}
+	.lin {
+		margin: $margin10px;
+		@include grid(4, 7, 4, 7);
+	}
+	.lisa {
+		margin: $margin10px;
+		@include grid(7, 10, 4, 7);
+	}
+}
+
+
+/*  Footer */
+
+.footer {
+	grid-area: f;
+	background-color: $backgroundcolorpurple;
+	@include flexcenter (row wrap, flex-end, center);
+}
+
+.copy {
+	padding: 20px 30px 20px;
+	color: rgb(51, 48, 48);
+	& a {
+		color: #fffdfe;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
